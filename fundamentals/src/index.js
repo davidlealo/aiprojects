@@ -8,7 +8,7 @@ const main = async () => {
     const prompt = 'How big is Santiago, Chile?';
     
     // Send the request to the OpenAI API
-    const response = await openai.chat.completion.create({
+    const response = await openai.chat.completions.create({
         model: 'gpt-3.5-turbo',
         messages: [
             {
@@ -19,7 +19,7 @@ const main = async () => {
     });
 
     // Print the response
-    console.log(response.choices[0].message);
+    console.log(response.choices[0].message.content);
     
 };
 
