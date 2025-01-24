@@ -12,14 +12,15 @@ const main = async () => {
         model: 'gpt-3.5-turbo',
         messages: [
             {
-                role: 'system',
-                content: 'You are a helpful assistant.',
-            },
-            {
                 role: 'user',
                 content: prompt,
             },
         ],
     });
+
+    // Print the response
+    console.log(response.choices[0].message);
     
 };
+
+main();
