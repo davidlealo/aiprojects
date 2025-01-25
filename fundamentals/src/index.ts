@@ -1,7 +1,13 @@
-import { OpenAI } from 'openai';
+import { OpenAI } from 'openai'; // Ensure you have the correct import
 
-// Create an instance of the OpenAI class
-const openai = new OpenAI(process.env.OPENAI_API_KEY);
+// Ensure the API key is defined
+const apiKey = process.env.OPENAI_API_KEY;
+if (!apiKey) {
+    throw new Error('OPENAI_API_KEY is not defined');
+}
+
+// Create an instance of the OpenAI class with the API key
+const openai = new OpenAI({ apiKey });
 
 const main = async () => {
     // Define the prompt
@@ -20,7 +26,6 @@ const main = async () => {
 
     // Print the response
     console.log(response.choices[0].message.content);
-    
 };
 
-main();
+main().catch(console.error);
